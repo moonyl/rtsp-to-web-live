@@ -43,7 +43,7 @@ static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, cons
            pkt->stream_index);
 }
 
-int main(int argc, char **argv)
+int remux(int argc, char **argv)
 {
     AVOutputFormat *ofmt = NULL;
     AVFormatContext *ifmt_ctx = NULL, *ofmt_ctx = NULL;
