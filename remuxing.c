@@ -43,29 +43,15 @@ static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, cons
            pkt->stream_index);
 }
 
-int remux(int argc, char **argv)
+int remux(const char *in_filename, const char *out_filename)
 {
     AVOutputFormat *ofmt = NULL;
     AVFormatContext *ifmt_ctx = NULL, *ofmt_ctx = NULL;
     AVPacket pkt;
-    const char *in_filename, *out_filename;
     int ret, i;
     int stream_index = 0;
     int *stream_mapping = NULL;
     int stream_mapping_size = 0;
-
-    if (argc < 3)
-    {
-        printf("usage: %s input output\n"
-               "API example program to remux a media file with libavformat and libavcodec.\n"
-               "The output format is guessed according to the file extension.\n"
-               "\n",
-               argv[0]);
-        return 1;
-    }
-
-    in_filename = argv[1];
-    out_filename = argv[2];
 
     if ((ret = avformat_open_input(&ifmt_ctx, in_filename, 0, 0)) < 0)
     {

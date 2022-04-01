@@ -4,4 +4,4 @@
 
 #pragma once
 
-int remux(int argc, char **argv);
+int remux(const char *in_filename, const char *out_filename);
