@@ -4,4 +4,5 @@
 
 #pragma once
 
-int remux(const char *in_filename, const char *out_filename);
+#include <libavformat/avformat.h>
+void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag);

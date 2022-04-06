@@ -7,6 +7,8 @@ extern "C" {
 }
 
 #include <cstdio>
+#include "Remux.h"
+#include <iostream>
 
 int main(int argc, char* argv[])    {
     if (argc < 3)
@@ -19,5 +21,13 @@ int main(int argc, char* argv[])    {
         return 1;
     }
 
-    return remux(argv[1], argv[2]);
+    try {
+        Remux remux{argv[1], argv[2]};
+        remux.run();
+    } catch(std::exception& e) {
+        std::cerr << e.what();
+        return 1;
+    }
+
+    return 0;
 }

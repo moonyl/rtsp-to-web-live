@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(FFMPEG)
 
-add_executable(remuxing remuxing.c main.cpp remuxing.h)
+add_executable(remuxing remuxing.c main.cpp remuxing.h Remux.cpp Remux.h)
 
 target_include_directories(remuxing PRIVATE ${FFMPEG_INCLUDE_DIRS})
 target_link_libraries(remuxing PRIVATE ${FFMPEG_LIBRARIES})
